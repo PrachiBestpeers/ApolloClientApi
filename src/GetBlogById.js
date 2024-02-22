@@ -10,9 +10,12 @@ const GetBlogById = () => {
     }
   })
   
-  console.log("dataaaa111111111111", data);
   return (
-    <div></div>
+    <div>
+      <h4>ID : {data.blog.id}</h4>
+      <p>Title: {data.blog.title}</p>
+      <p>Description: {data.blog.description}</p>
+    </div>
   )
 }
 

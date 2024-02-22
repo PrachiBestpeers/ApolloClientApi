@@ -3,19 +3,17 @@ import { GET_BLOGS, CREATE_BLOG } from './ApiCall';
 import { useMutation, useQuery } from '@apollo/client';
 import CreateBlog from './CreateBlog';
 import "./style.css";
-import GetBlogById from './GetBlogById.js';
 
 
 const Home = () => {
 
   const {data, loading, error} = useQuery(GET_BLOGS);
   
-  console.log("data", data);
   return (
     <div>
         <h3>All Blogs <b>{data?.blogs.length}</b></h3>
         <CreateBlog />
-        <GetBlogById />
+        
         {
           data?.blogs.map(item => (
            <div className='card' key={item.id}>

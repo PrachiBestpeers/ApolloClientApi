@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { CREATE_BLOG } from "./ApiCall";
 import { useMutation } from "@apollo/client";
+import GetBlogById from "./GetBlogById";
 import "./style.css";
 
 const CreateBlog = () => {
   const [createBlog, { data, loading, error }] = useMutation(CREATE_BLOG);
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  console.log("item", data);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
 
   const handleSubmit = () => {
     createBlog({
@@ -16,23 +16,37 @@ const CreateBlog = () => {
         description: description,
         userId: 1,
       },
-    })
+    });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-      <label>Title</label>
-      <input value={title} onChange={(e) => setTitle(e.target.value)} />
-      </div>
-      <div>
-        <label>Description</label>
-        <input value={description} onChange={(e) => setDescription(e.target.value)} />
-      </div>
-      <button type="submit">Create Blog</button>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error.message}</p>}
-    </form>
+    <div className="cardForForm">
+      <form onSubmit={handleSubmit}>
+        <div className="cardSection">
+          <label className="inputLabel">Title</label>
+          <input
+            className="inputStyle"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
+        <div className="cardSection">
+          <label className="inputLabel">Description</label>
+          <input
+            className="inputStyle"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+        <button className="buttonSubmit" type="submit">
+          CREATE BLOG
+        </button>
+
+        {loading && <p>Loading...</p>}
+        {error && <p>Error: {error.message}</p>}
+      </form>
+      <GetBlogById />
+    </div>
   );
 };
 

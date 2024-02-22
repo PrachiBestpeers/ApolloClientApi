@@ -12,3 +12,44 @@
     align-items: center;
     line-height: 8px;
 }
+
+.cardForForm {
+    width: '50%';
+    margin: 50px;
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    background: rgb(238,174,202);
+    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 57%);
+}
+
+.cardSection {
+    display: flex;
+    margin: 20px;
+    align-items: center;
+}
+
+.inputLabel {
+    width: 100px;
+}
+
+.inputStyle {
+    width: 500px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px white
+}
+
+.buttonSubmit {
+    width: 500px;
+    background-color: rgba(238,174,202,1);
+    border: 2px solid white;
+    height: 35px;
+    border-radius: 10px;
+    margin-left: 120px;
+    color: rgb(96, 73, 83);
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
